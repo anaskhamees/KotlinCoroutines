@@ -10,8 +10,8 @@ import com.example.mvvmflowstateflow.R
 import com.example.mvvmflowstateflow.database.AppDataBase
 import com.example.mvvmflowstateflow.database.FavProductsDAO
 import com.example.mvvmflowstateflow.database.ProductsLocalDataSourceImpl
-import com.example.mvvmflowstateflow.favorite.viewmodel.FavoriteViewModel
-import com.example.mvvmflowstateflow.favorite.viewmodel.FavoriteViewModelFactory
+import com.example.mvvmflowstateflow.favorite.viewmodel.FavViewModel
+import com.example.mvvmflowstateflow.favorite.viewmodel.FavViewModelFactory
 import com.example.mvvmflowstateflow.model.Product
 import com.example.mvvmflowstateflow.model.ProductsRepositoryImpl
 import com.example.mvvmflowstateflow.network.ProductsRemoteDataSourceImpl
@@ -23,7 +23,7 @@ import kotlinx.coroutines.launch
  */
 class FavActivity : AppCompatActivity() {
 
-    private lateinit var favoriteViewModel: FavoriteViewModel
+    private lateinit var favViewModel: FavViewModel
     private lateinit var favListAdapter: FavListAdapter
     private lateinit var favRecyclerView: RecyclerView
 
@@ -59,12 +59,12 @@ class FavActivity : AppCompatActivity() {
         repo = ProductsRepositoryImpl(localDataSource, remoteDataSource)
 
         // Initialize ViewModel using the factory
-        val factory = FavoriteViewModelFactory(repo)
-        favoriteViewModel = viewModels<FavoriteViewModel> { factory }.value
+        val factory = FavViewModelFactory(repo)
+        favViewModel = viewModels<FavViewModel> { factory }.value
 
         // Observe favorite products from the ViewModel and update the RecyclerView
         lifecycleScope.launch {
-            favoriteViewModel.favoriteProducts.collect { products ->
+            favViewModel.favoriteProducts.collect { products ->
                 favListAdapter.submitList(products)
             }
         }
@@ -76,6 +76,6 @@ class FavActivity : AppCompatActivity() {
      * @param product The [Product] to be removed from the favorites list.
      */
     private fun deleteProduct(product: Product) {
-        favoriteViewModel.deleteProductFromFavorites(product)
+        favViewModel.deleteProductFromFavorites(product)
     }
 }

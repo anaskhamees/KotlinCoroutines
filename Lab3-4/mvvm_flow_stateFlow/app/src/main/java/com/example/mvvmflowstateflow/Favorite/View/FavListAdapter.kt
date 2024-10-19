@@ -3,10 +3,12 @@ package com.example.mvvmflowstateflow.favorite.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.mvvmflowstateflow.R
 import com.example.mvvmflowstateflow.model.Product
 
@@ -81,6 +83,7 @@ class FavListAdapter(private val deleteCallback: (Product) -> Unit) :
         private val textViewBrand: TextView = itemView.findViewById(R.id.editBrand)
         private val textViewDescription: TextView = itemView.findViewById(R.id.editDescription)
         private val deleteButton: TextView = itemView.findViewById(R.id.btndeletefromFav)
+        private val productImg:ImageView=itemView.findViewById(R.id.favProductImg)
 
         /**
          * Binds the product data to the views and sets up the delete button's click listener.
@@ -93,6 +96,9 @@ class FavListAdapter(private val deleteCallback: (Product) -> Unit) :
             textViewPrice.text = product.price.toString()
             textViewBrand.text = product.brand
             textViewDescription.text = product.description
+            Glide.with(itemView.context)
+                .load(product.thumbnail)
+                .into(productImg)
             deleteButton.setOnClickListener {
                 deleteCallback(product) // Trigger the delete callback when clicked
             }

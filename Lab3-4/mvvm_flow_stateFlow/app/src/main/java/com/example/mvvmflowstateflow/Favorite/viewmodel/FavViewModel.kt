@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
  *
  * @param repository The [ProductsRepository] used for accessing product data.
  */
-class FavoriteViewModel(private val repository: ProductsRepository) : ViewModel() {
+class FavViewModel(private val repository: ProductsRepository) : ViewModel() {
 
     /**
      * A Flow that provides a list of favorite products.

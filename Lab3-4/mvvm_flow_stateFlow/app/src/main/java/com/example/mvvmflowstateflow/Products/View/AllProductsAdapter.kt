@@ -87,7 +87,7 @@ class AllProductAdapter : RecyclerView.Adapter<AllProductAdapter.ProductViewHold
         private val textViewPrice: TextView = itemView.findViewById(R.id.editPrice)
         private val textViewBrand: TextView = itemView.findViewById(R.id.editBrand)
         private val textViewDescription: TextView = itemView.findViewById(R.id.editDescription)
-        private val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        private val imageView: ImageView = itemView.findViewById(R.id.favProductImg)
         val btnAddToFav: Button = itemView.findViewById(R.id.btnAddToFav)
 
         /**

@@ -5,12 +5,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.mvvmflowstateflow.model.ProductsRepository
 
 /**
- * A factory class for creating instances of [FavoriteViewModel].
+ * A factory class for creating instances of [FavViewModel].
  * This is necessary to pass the required [ProductsRepository] to the ViewModel.
  *
  * @param repository The [ProductsRepository] instance to be used by the ViewModel.
  */
-class FavoriteViewModelFactory(private val repository: ProductsRepository) : ViewModelProvider.Factory {
+class FavViewModelFactory(private val repository: ProductsRepository) : ViewModelProvider.Factory {
 
     /**
      * Creates an instance of the specified ViewModel class.
@@ -20,8 +20,8 @@ class FavoriteViewModelFactory(private val repository: ProductsRepository) : Vie
      * @throws IllegalArgumentException If the specified ViewModel class is unknown or cannot be created.
      */
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(FavoriteViewModel::class.java)) {
-            return FavoriteViewModel(repository) as T
+        if (modelClass.isAssignableFrom(FavViewModel::class.java)) {
+            return FavViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
