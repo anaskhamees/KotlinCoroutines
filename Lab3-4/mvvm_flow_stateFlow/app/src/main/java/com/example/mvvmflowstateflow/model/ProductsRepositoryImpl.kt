@@ -1,6 +1,5 @@
 package com.example.mvvmflowstateflow.model
 
-import android.util.Log
 import com.example.mvvmflowstateflow.Network.ProductsRemoteDataSource
 import com.example.mvvmflowstateflow.database.ProductsLocalDataSource
 import kotlinx.coroutines.flow.Flow

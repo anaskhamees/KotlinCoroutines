@@ -6,11 +6,9 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-//import com.example.myapplication.Favorite.View.FavActivity
 import com.example.mvvmflowstateflow.Products.View.AllProductActivity
 import com.example.mvvmflowstateflow.favorite.view.FavActivity
 
-//import com.example.myapplication.Products.View
 
 
 
